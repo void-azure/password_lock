@@ -43,10 +43,10 @@ class PasswordLock
         Key $aesKey,
         ?array $hashOptions = null
     ): string {
-        if (is_null($hashOptions)) {
+        if (\is_null($hashOptions)) {
             $hashOptions = static::getDefaultOptions();
         }
-        if (array_key_exists('salt', $hashOptions)) {
+        if (\array_key_exists('salt', $hashOptions)) {
             throw new \InvalidArgumentException('Explicit salts are unsupported.');
         }
         /** @var string $hash */
@@ -158,7 +158,7 @@ class PasswordLock
         Key $aesKey,
         ?array $hashOptions = null
     ): bool {
-        if (is_null($hashOptions)) {
+        if (\is_null($hashOptions)) {
             $hashOptions = static::getDefaultOptions();
         }
         $hash = Crypto::decrypt(
